@@ -11,6 +11,8 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  // importing useEffect is necessary to run code below
+
   // useEffect(() => {
   //   const identifier = setTimeout(() => {
   //     setFormIsValid(
