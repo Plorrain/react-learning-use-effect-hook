@@ -47,6 +47,7 @@ const Login = (props) => {
           className={`${classes.control} ${
             emailIsValid === false ? classes.invalid : ''
           }`}
+          // question: line above, why '' and not emailIsValid(event.target)?
         >
           <label htmlFor="email">E-Mail</label>
           <input
@@ -61,6 +62,7 @@ const Login = (props) => {
           className={`${classes.control} ${
             passwordIsValid === false ? classes.invalid : ''
           }`}
+          // question: line above, why '' and not passwordIsValid(event.target)?
         >
           <label htmlFor="password">Password</label>
           <input
