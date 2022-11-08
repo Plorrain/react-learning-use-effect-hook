@@ -7,10 +7,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #8EC3B0;
+  background: #624F82;
   padding: 0 2rem;
 }
 
 .main-header h1 {
-  color: #624F82;
+  color: #8EC3B0;
 }
