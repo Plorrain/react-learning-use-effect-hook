@@ -4,7 +4,9 @@ import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
 import Button from '../UI/Button/Button';
 
-const emailReducer = () => {};
+const emailReducer = (state, action) => {
+  return { value: '', isValid: false };
+};
 
 const Login = (props) => {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -13,7 +15,10 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
-  const [emailState, dispatchEmail] = useReducer(emailReducer);
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {
+    value: '',
+    isValid: false
+  });
 
   // importing useEffect is necessary to run code below
 
@@ -43,12 +48,12 @@ const Login = (props) => {
     setEnteredPassword(event.target.value);
 
     setFormIsValid(
-      event.target.value.trim().length > 6 && enteredEmail.includes('@')
+      event.target.value.trim().length > 6 && emailState.isValid
     );
   };
 
   const validateEmailHandler = () => {
-    setEmailIsValid(enteredEmail.includes('@'));
+    setEmailIsValid(emailState.isValid);
   };
 
   const validatePasswordHandler = () => {
@@ -57,7 +62,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(enteredEmail, enteredPassword);
+    props.onLogin(emailState.value, enteredPassword);
   };
 
   return (
@@ -65,7 +70,7 @@ const Login = (props) => {
       <form onSubmit={submitHandler}>
         <div
           className={`${classes.control} ${
-            emailIsValid === false ? classes.invalid : ''
+            emailState.isValid === false ? classes.invalid : ''
           }`}
           // question: line above, why '' and not emailIsValid(event.target)?
         >
@@ -73,7 +78,7 @@ const Login = (props) => {
           <input
             type="email"
             id="email"
-            value={enteredEmail}
+            value={emailState.value}
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
