@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 
 import Card from '../UI/Card/Card';
 import classes from './Login.module.css';
@@ -43,18 +43,17 @@ const Login = (props) => {
 
   // importing useEffect is necessary to run code below
 
-  // useEffect(() => {
-  //   const identifier = setTimeout(() => {
-  //     setFormIsValid(
-  //       enteredEmail.includes('@') && enteredPassword.trim().length > 6
-  //     );
-  //   }, 500);
-
+  useEffect(() => {
+  const identifier = setTimeout(() => {
+    setFormIsValid(
+      emailState.isValid && passwordState.isValid
+    );
+  }, 500);
 // code below = cleanup function
-  //   return () => {
-  //     clearTimeout(identifier);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+    return () => {
+      clearTimeout(identifier);
+    };
+  }, [emailState, passwordState]);
 
   // either code above or lines 31-32 & 39-40
 
