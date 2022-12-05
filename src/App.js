@@ -13,8 +13,8 @@ function App() {
     <Fragment>
         <MainHeader onLogout={ctx.logoutHandler} />
         <main>
-          {!ctx.isLoggedIn && <Login onLogin={ctx.loginHandler} />}
-          {ctx.isLoggedIn && <Home onLogout={ctx.logoutHandler} />}
+          {!ctx.isLoggedIn && <Login />}
+          {ctx.isLoggedIn && <Home />}
         </main>
     </Fragment>
   );
