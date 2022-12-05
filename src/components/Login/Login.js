@@ -1,8 +1,9 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useReducer, useEffect, useContext } from 'react';
 
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
 import classes from './Login.module.css';
+import AuthContext from '../../context/auth-context';
 
 // login button is not working, it shows in browser (grey and unclickable)
 
@@ -42,6 +43,8 @@ const Login = (props) => {
     value: '',
     isValid: [],
   });
+
+  const authCtx = useContext(AuthContext);
 
   // importing useEffect is necessary to run code below
 
@@ -90,7 +93,7 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    props.onLogin(emailState.value, passwordState.value);
+    authCtx.onLogin(emailState.value, passwordState.value);
   };
 
   return (
