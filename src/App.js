@@ -32,6 +32,7 @@ function App() {
     <Fragment>
       <AuthContext.Provider value={{
         isLoggedIn: isLoggedIn,
+        onLogOut: logoutHandler,
       }}
       >
         <MainHeader onLogout={logoutHandler} />
