@@ -1,16 +1,20 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
+
 
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
+import AuthContext from './context/auth-context';
 
 function App() {
+  const ctx = useContext(AuthContext);
+
   return (
     <Fragment>
-        <MainHeader onLogout={logoutHandler} />
+        <MainHeader onLogout={ctx.logoutHandler} />
         <main>
-          {!isLoggedIn && <Login onLogin={loginHandler} />}
-          {isLoggedIn && <Home onLogout={logoutHandler} />}
+          {!ctx.isLoggedIn && <Login onLogin={ctx.loginHandler} />}
+          {ctx.isLoggedIn && <Home onLogout={ctx.logoutHandler} />}
         </main>
     </Fragment>
   );
