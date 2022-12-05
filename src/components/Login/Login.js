@@ -33,12 +33,12 @@ const Login = (props) => {
 
   const [emailState, dispatchEmail] = useReducer(emailReducer, {
     value: '',
-    isValid: null,
+    isValid: [],
   });
 
   const [passwordState, dispatchPassword] = useReducer(passwordReducer,{
     value: '',
-    isValid: null,
+    isValid: [],
   });
 
   // importing useEffect is necessary to run code below
@@ -53,7 +53,8 @@ const Login = (props) => {
       emailIsValid.isValid && passwordIsValid.isValid
     );
   }, 500);
-// code below = cleanup function
+
+  // code below = cleanup function
     return () => {
       clearTimeout(identifier);
     };
