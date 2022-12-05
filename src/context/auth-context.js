@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
+// ! Not to be used for high frequency component !
+// ! Not meant to replace ALL props
+
 const AuthContext = React.createContext({
   isLoggedIn: false,
   // line below: dummy func for better i.d.e autocompletion
