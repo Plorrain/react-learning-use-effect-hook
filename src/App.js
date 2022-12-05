@@ -5,8 +5,6 @@ import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
 import AuthContext from './context/auth-context';
 
-// app isnt working correctly the login button is down
-
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
