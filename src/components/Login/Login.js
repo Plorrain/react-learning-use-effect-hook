@@ -60,7 +60,7 @@ const Login = (props) => {
     };
   }, [emailIsValid, passwordIsValid]);
 
-  // either code above or lines 31-32 & 39-40
+  // either code above or lines 31-32 & 7-42
 
   const emailChangeHandler = (event) => {
     dispatchEmail({type: 'USER_INPUT', val: event.target.value});
