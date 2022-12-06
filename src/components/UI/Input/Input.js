@@ -1,14 +1,24 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 import classes from './Input.module.css';
 
 function Input (props) {
   const inputRef = useRef();
 
-  // useeffect hook always run in the end/after everything
-  useEffect(() => {
+  // const validate: instead of using useEffect is also
+  // a solution but only in rare cases
+  // most of the time state, effect etc are better
+  const validate = () => {
     inputRef.current.focus();
-  }, []);
+  }
+
+  // useEffect hook always run in the end/after the rest of the code
+  // for this useEffect needs to be imported
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // }, []);
+
+
   return (
     <div
       className={`${classes.control} ${
