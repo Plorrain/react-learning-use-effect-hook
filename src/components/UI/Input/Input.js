@@ -2,7 +2,7 @@ import React, { useRef, useImperativeHandle } from 'react';
 
 import classes from './Input.module.css';
 
-function Input (props) {
+const Input = React.forwardRef((props, ref) => {
   const inputRef = useRef();
 
   // const validate: instead of using useEffect is also
@@ -11,6 +11,12 @@ function Input (props) {
   const activate = () => {
     inputRef.current.focus();
   }
+
+  useImperativeHandle(ref, () => {
+    return {
+      focus: activate
+    };
+  });
 
   // useEffect hook always run in the end/after the rest of the code
   // for this useEffect needs to be imported
@@ -36,7 +42,7 @@ function Input (props) {
           onBlur={props.onBlur}
         />
     </div>
-  )
-}
+  );
+});
 
 export default Input;
