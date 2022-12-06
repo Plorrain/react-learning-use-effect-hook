@@ -1,5 +1,7 @@
 import React, { useState, useReducer, useEffect, useContext } from 'react';
 
+import EmailInput from './EmailInput';
+import PasswordInput from './PasswordInput';
 import Card from '../UI/Card/Card';
 import Button from '../UI/Button/Button';
 import classes from './Login.module.css';
@@ -109,11 +111,11 @@ const Login = (props) => {
   return (
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
-        <div
+        {/* <div
           className={`${classes.control} ${
             emailState.isValid === false ? classes.invalid : ''
           }`}
-          // question: line above, why '' and not emailIsValid(event.target)?
+          question: line above, why '' and not emailIsValid(event.target)?
         >
           <label htmlFor="email">E-Mail</label>
           <input
@@ -123,12 +125,12 @@ const Login = (props) => {
             onChange={emailChangeHandler}
             onBlur={validateEmailHandler}
           />
-        </div>
-        <div
+        </div> */}
+        {/* <div
           className={`${classes.control} ${
             passwordState.isValid === false ? classes.invalid : ''
           }`}
-          // question: line above, why '' and not passwordIsValid(event.target)?
+          question: line above, why '' and not passwordIsValid(event.target)?
         >
           <label htmlFor="password">Password</label>
           <input
@@ -138,7 +140,7 @@ const Login = (props) => {
             onChange={passwordChangeHandler}
             onBlur={validatePasswordHandler}
           />
-        </div>
+        </div> */}
         <div className={classes.actions}>
           <Button type="submit" className={classes.btn} disabled={!formIsValid}>
             Login
