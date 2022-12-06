@@ -8,7 +8,7 @@ function Input (props) {
   // const validate: instead of using useEffect is also
   // a solution but only in rare cases
   // most of the time state, effect etc are better
-  const validate = () => {
+  const activate = () => {
     inputRef.current.focus();
   }
 

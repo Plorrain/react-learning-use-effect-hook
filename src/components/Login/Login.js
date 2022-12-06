@@ -108,9 +108,9 @@ const Login = (props) => {
     if (formIsValid) {
     authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid){
-
+      emailInputRef.current.activate();
     } else {
-
+      passwordInputRef.current.activate();
     }
   };
 
@@ -118,6 +118,7 @@ const Login = (props) => {
     <Card className={classes.login}>
       <form onSubmit={submitHandler}>
         <Input
+          ref={emailInputRef}
           id='email'
           label='E-Mail'
           type='email'
@@ -127,6 +128,7 @@ const Login = (props) => {
           onBlur={validateEmailHandler}
          />
         <Input
+        ref={passwordInputRef}
           id='password'
           label='Password'
           type='password'
