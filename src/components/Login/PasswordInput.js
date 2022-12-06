@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import classes from './Login.module.css';
 
-function PasswordInput () {
+function PasswordInput (props) {
 
   return (
     <div
