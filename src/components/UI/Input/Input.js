@@ -5,6 +5,10 @@ import classes from './Input.module.css';
 function Input (props) {
   const inputRef = useRef();
 
+  // useeffect hook always run in the end/after everything
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   return (
     <div
       className={`${classes.control} ${
@@ -14,6 +18,7 @@ function Input (props) {
       >
         <label htmlFor={props.id}>{props.label}</label>
         <input
+        ref={inputRef}
           type={props.type}
           id={props.id}
           value={props.value}
