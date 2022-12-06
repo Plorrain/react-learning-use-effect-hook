@@ -1,4 +1,4 @@
-import React, { useState, useReducer, useEffect, useContext } from 'react';
+import React, { useState, useReducer, useEffect, useContext, useRef } from 'react';
 
 import Input from '../UI/Input/Input';
 import Card from '../UI/Card/Card';
@@ -47,7 +47,8 @@ const Login = (props) => {
 
   const authCtx = useContext(AuthContext);
 
-  // importing useEffect is necessary to run code below
+  const emailInputRef = useRef();
+  const passwordInputRef = useRef();
 
   useEffect(() => {
     console.log('EFFECT RUNNING');
