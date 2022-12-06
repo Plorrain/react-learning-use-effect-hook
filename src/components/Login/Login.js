@@ -1,4 +1,10 @@
-import React, { useState, useReducer, useEffect, useContext, useRef } from 'react';
+import React, {
+  useState,
+  useReducer,
+  useEffect,
+  useContext,
+  useRef,
+} from 'react';
 
 import Input from '../UI/Input/Input';
 import Card from '../UI/Card/Card';
@@ -108,9 +114,9 @@ const Login = (props) => {
     if (formIsValid) {
     authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid){
-      emailInputRef.current.activate();
+      emailInputRef.current.focus();
     } else {
-      passwordInputRef.current.activate();
+      passwordInputRef.current.focus();
     }
   };
 
