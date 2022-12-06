@@ -48,12 +48,21 @@ const Login = (props) => {
 
   // importing useEffect is necessary to run code below
 
+  useEffect(() => {
+    console.log('EFFECT RUNNING');
+
+    return () => {
+      console.log('EFFECT CLEANUP');
+    };
+  }, []);
+
   const { isValid: emailIsValid } = emailState; //alias assignment to destructure syntax for the useEffect
   const { isValid: passwordIsValid } = passwordState;
 
 
   useEffect(() => {
   const identifier = setTimeout(() => {
+    console.log('CLEANUP');
     setFormIsValid(
       emailIsValid.isValid && passwordIsValid.isValid
     );
